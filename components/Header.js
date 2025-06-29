@@ -10,6 +10,7 @@ export default function Header() {
           <Link href="/mustard-oil">Mustard Oil</Link>
           <Link href="/postman-recipes">Recipes</Link>
           <Link href="/connect-for-dealership">Dealership</Link>
+          <Link href="/privacy-policy">PrivacyPolicy</Link>
         </div>
       </nav>
     </header>
