@@ -1,4 +1,3 @@
-// components/Header.js
 import Link from "next/link";
 
 export default function Header() {
@@ -13,7 +12,7 @@ export default function Header() {
           <Link href="/postman-recipes">Recipes</Link>
           <Link href="/connect-for-dealership">Dealership</Link>
           <Link href="/terms-and-conditions">Terms & Conditions</Link>
- {/* <-- Added link */}
+          <Link href="/privacy-policy">Privacy Policy</Link>
         </div>
       </nav>
     </header>
