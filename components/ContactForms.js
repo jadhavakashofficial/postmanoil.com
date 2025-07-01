@@ -1,8 +1,7 @@
-// pages/contact-us.js
+// Updated ContactForms.js for WordPress Backend
 import { useState } from "react";
-import Head from 'next/head';
 
-export default function ContactUsPage() {
+export default function ContactForms() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,7 +9,6 @@ export default function ContactUsPage() {
     subject: "General Inquiry",
     message: ""
   });
-  
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState({ success: false, message: "" });
 
@@ -35,9 +33,9 @@ export default function ContactUsPage() {
           nonce: window.contactFormNonce // WordPress nonce for security
         })
       });
-      
+
       const result = await response.json();
-      
+
       if (result.success) {
         setStatus({ 
           success: true, 
@@ -77,63 +75,44 @@ export default function ContactUsPage() {
   ];
 
   return (
-    <>
-      <Head>
-        <title>Contact Us | Postman Oils - Get In Touch For Quality Cooking Oils</title>
-        <meta name="description" content="Contact Postman Oils for premium cooking oil inquiries, dealership opportunities, bulk orders. 55+ years of trust. Call +91-9928021482 or email us." />
-        <meta name="keywords" content="contact postman oils, cooking oil dealer, bulk oil orders, dealership opportunity, quality cooking oil supplier" />
-        <meta property="og:title" content="Contact Postman Oils - Premium Cooking Oil Supplier" />
-        <meta property="og:description" content="Get in touch with Postman Oils for quality cooking oils, dealership opportunities, and bulk orders. 55+ years of trust in pure oils." />
-        <link rel="canonical" href="https://postmanoil.com/contact-us" />
-      </Head>
+    <section className="py-16 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-40 h-40 bg-orange-300 rounded-full" style={{ filter: 'blur(20px)' }}></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-amber-300 rounded-full" style={{ filter: 'blur(20px)' }}></div>
+      </div>
 
-      {/* Vibrant Header */}
-      <section className="py-16 bg-gradient-to-br from-orange-50 via-red-50 to-lime-50 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-orange-300 rounded-full" style={{ filter: 'blur(20px)' }}></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-red-300 rounded-full" style={{ filter: 'blur(25px)' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-36 h-36 bg-lime-300 rounded-full transform -translate-x-1/2 -translate-y-1/2" style={{ filter: 'blur(30px)' }}></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-          <div className="mb-8">
-            <div className="inline-block bg-white/80 backdrop-blur-sm rounded-2xl p-4 mb-6 shadow-lg border border-orange-200">
-              <img 
-                src="https://postmanoil.com/wp-content/uploads/2025/06/Logo.png" 
-                alt="Postman Oil Logo"
-                className="h-16 w-auto object-contain mx-auto"
-              />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Enhanced Header */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="bg-white p-4 rounded-full shadow-2xl border-4 border-orange-100">
+                <img 
+                  src="https://postmanoil.com/wp-content/uploads/2025/06/Logo.png" 
+                  alt="Postman Oil Logo"
+                  className="h-20 w-auto object-contain"
+                />
+              </div>
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-full animate-pulse"></div>
             </div>
           </div>
-          
-          <h1 className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-orange-600 via-red-500 to-lime-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-orange-600 via-red-500 to-pink-600 bg-clip-text text-transparent">
             Get In Touch With Us
           </h1>
-          
-          <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-700 text-xl max-w-3xl mx-auto leading-relaxed">
             Ready to experience the <span className="font-bold text-orange-600">purity and quality</span> of Postman Oil? 
             We're here to help with all your cooking oil needs.
           </p>
-          
-          <div className="w-32 h-1 bg-gradient-to-r from-orange-500 via-red-500 to-lime-500 mx-auto rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto rounded-full mt-6"></div>
         </div>
-      </section>
-
-      {/* Main Contact Section */}
-      <section className="py-16 bg-gradient-to-br from-orange-50 via-amber-50 to-lime-50 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-40 h-40 bg-orange-300 rounded-full" style={{ filter: 'blur(20px)' }}></div>
-          <div className="absolute bottom-20 right-20 w-48 h-48 bg-red-300 rounded-full" style={{ filter: 'blur(20px)' }}></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-8">
             
             {/* Contact Information */}
             <div className="lg:col-span-2">
-              <div className="bg-gradient-to-br from-orange-500 via-red-500 to-lime-600 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
+              <div className="bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
@@ -153,41 +132,41 @@ export default function ContactUsPage() {
                   <div className="space-y-6">
                     <div className="flex items-start group">
                       <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                        <svg className="w-6 h-6 text-lime-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-6 h-6 text-amber-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div>
                         <h3 className="font-bold mb-1">Email Address</h3>
-                        <p className="text-orange-100">marketingpostmanoil@gmail.com</p>
-                        <p className="text-orange-100">support@postmanoil.com</p>
+                        <p className="text-amber-100">marketingpostmanoil@gmail.com</p>
+                        <p className="text-amber-100">support@postmanoil.com</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start group">
                       <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                        <svg className="w-6 h-6 text-lime-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-6 h-6 text-amber-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
                       <div>
                         <h3 className="font-bold mb-1">Phone Numbers</h3>
-                        <p className="text-orange-100">Anil: +91-9928021482</p>
-                        <p className="text-orange-100">Sanjay: +91-9214044288</p>
-                        <p className="text-orange-100">Pakshik: +91-9529808832</p>
+                        <p className="text-amber-100">Anil: +91-9928021482</p>
+                        <p className="text-amber-100">Sanjay: +91-9214044288</p>
+                        <p className="text-amber-100">Pakshik: +91-9529808832</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start group">
                       <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                        <svg className="w-6 h-6 text-lime-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-6 h-6 text-amber-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                       </div>
                       <div>
                         <h3 className="font-bold mb-1">Office Address</h3>
-                        <p className="text-orange-100 leading-relaxed">
+                        <p className="text-amber-100 leading-relaxed">
                           Mittal Oil Mills (Pvt.) Ltd.<br />
                           H-1, 87-94, RIICO Industrial Area,<br />
                           Jaipur Road, Kekri 305404,<br />
@@ -206,7 +185,7 @@ export default function ContactUsPage() {
                       </span>
                       Business Hours
                     </h3>
-                    <div className="space-y-2 text-orange-100">
+                    <div className="space-y-2 text-amber-100">
                       <p><span className="font-semibold">Monday - Friday:</span> 9:00 AM - 6:00 PM</p>
                       <p><span className="font-semibold">Saturday:</span> 10:00 AM - 4:00 PM</p>
                       <p><span className="font-semibold">Sunday:</span> Closed</p>
@@ -267,7 +246,7 @@ export default function ContactUsPage() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Phone and Subject Row */}
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
@@ -336,8 +315,12 @@ export default function ContactUsPage() {
                         className={`w-full py-4 px-8 rounded-xl font-bold text-white text-lg transition-all duration-300 transform ${
                           isLoading 
                             ? 'bg-gray-400 cursor-not-allowed' 
-                            : 'bg-gradient-to-r from-orange-500 via-red-500 to-lime-600 hover:from-orange-600 hover:via-red-600 hover:to-lime-700 shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 hover:-translate-y-1 active:scale-95'
+                            : 'bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 hover:from-orange-600 hover:via-red-600 hover:to-pink-700 shadow-xl hover:shadow-2xl hover:shadow-orange-500/25 hover:-translate-y-1 active:scale-95'
                         }`}
+                        style={{
+                          willChange: 'transform',
+                          backfaceVisibility: 'hidden'
+                        }}
                       >
                         {isLoading ? (
                           <span className="flex items-center justify-center">
@@ -385,7 +368,7 @@ export default function ContactUsPage() {
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
